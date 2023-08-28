@@ -24,6 +24,27 @@ AppBar appbarHomePage(BuildContext context) {
         ),
       ),
     ),
-    actions: [appbarButton(icon: CupertinoIcons.person, onTap: () {})],
+    actions: [appbarButton(icon: CupertinoIcons.person, onTap: () {
+
+showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('info'),
+          content: const Text('Developer : Hosivay\ninstagram: @hosivay\nGithub: @hosivay\nTelegram: @hosivay'),
+          actions: <Widget>[
+           
+            TextButton(
+              child: const Text('Close'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+
+    })],
   );
 }
