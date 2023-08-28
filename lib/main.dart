@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'package:pizza_quick_app/feature_home/presentation/screens/HomePage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,17 +20,5 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       home: const MyHomePage(),
     );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: Center(
-      child: Image.asset("lib/assets/Pepperoni Pizza.png"),
-    ));
   }
 }
