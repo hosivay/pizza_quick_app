@@ -15,10 +15,10 @@ Widget animationB({required Widget child, int? delay = 0}) {
   );
 }
 
-Widget animationC({required Widget child, int? delay = 1}) {
+Widget animationC({required Widget child, int? delay = 1,int? duration = 1700}) {
   return Swing(
     delay: Duration(seconds: delay!),
-    duration: const Duration(milliseconds: 1700),
+    duration: Duration(milliseconds: duration!),
     child: child,
   );
 }

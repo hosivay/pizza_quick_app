@@ -2,12 +2,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
 import 'package:pizza_quick_app/Core/utils/Animation.dart';
+import 'package:pizza_quick_app/feature_ShowPizza/presentation/screens/ShowPizza.dart';
 import 'package:pizza_quick_app/feature_home/data/PizzaData.dart';
 
 // ignore: non_constant_identifier_names
 Widget PizzaItemWidget(BuildContext context, int index) {
   return Bounceable(
-    onTap: () {},
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => ShowPizza(
+                  name: pizzaData[index]["Name"]!,
+                  img: pizzaData[index]["img"]!,
+                )),
+      );
+    },
     child: Padding(
       padding: const EdgeInsets.all(8.0),
       child: Stack(
@@ -37,7 +47,7 @@ Widget PizzaItemWidget(BuildContext context, int index) {
                                 .copyWith(
                                     fontWeight: FontWeight.w700, fontSize: 15)),
                       ),
-                      Text("Price : 18\$",
+                      Text("Price : \$18",
                           style: Theme.of(context)
                               .textTheme
                               .labelLarge!
@@ -56,7 +66,10 @@ Widget PizzaItemWidget(BuildContext context, int index) {
             child: animationC(
               child: CircleAvatar(
                 radius: 55,
-                child: Image.asset(pizzaData[index]["img"]!),
+                child: Hero(
+                  tag: "${pizzaData[index]["img"]}:tag",
+                  child: Image.asset(pizzaData[index]["img"]!)
+                  ),
               ),
             ),
           )
