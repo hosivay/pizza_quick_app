@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pizza_quick_app/Core/utils/Animation.dart';
 import 'package:pizza_quick_app/Core/widgets/AppbarBtn.dart';
 import 'package:pizza_quick_app/Core/widgets/CustomButton.dart';
+import 'package:pizza_quick_app/feature_orderPanel/presentation/widgets/OrderPanel.dart';
 
 class ShowPizza extends StatelessWidget {
   const ShowPizza({super.key, required this.name, required this.img});
@@ -34,14 +35,10 @@ class ShowPizza extends StatelessWidget {
                 left: -constraints.maxWidth * .1,
                 right: -constraints.maxWidth * .1,
                 top: constraints.maxHeight * .6,
-                child: animationC(
-                  delay: 1,
-                  duration: 1800,
-                  child: Hero(
-                    tag: "$img:tag",
-                    child: ClipRect(
-                      child: Image.asset(img, fit: BoxFit.fill),
-                    ),
+                child: Hero(
+                  tag: "$img:tag",
+                  child: ClipRect(
+                    child: Image.asset(img, fit: BoxFit.fill),
                   ),
                 ),
               ),
@@ -126,7 +123,16 @@ class ShowPizza extends StatelessWidget {
                   right: 40,
                   child: customMyButton(
                       backgroundColor: Colors.amber.shade600,
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => OrderPanel(
+                                    name: name,
+                                    img: img,
+                                  )),
+                        );
+                      },
                       style: const TextStyle(
                           fontSize: 18,
                           color: Colors.white,
