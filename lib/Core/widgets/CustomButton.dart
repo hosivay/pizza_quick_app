@@ -10,6 +10,7 @@ Widget customMyButton(
   return Bounceable(
       onTap: onTap,
       child: animationB(
+        delay: 2,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(15),
           child: Container(

@@ -10,13 +10,21 @@ Widget PizzaItemWidget(BuildContext context, int index) {
   return Bounceable(
     onTap: () {
       Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => ShowPizza(
-                  name: pizzaData[index]["Name"]!,
-                  img: pizzaData[index]["img"]!,
-                )),
-      );
+          context,
+          PageRouteBuilder(
+              transitionDuration: const Duration(milliseconds: 1800),
+              pageBuilder: (_, __, ___) => ShowPizza(
+                    name: pizzaData[index]["Name"]!,
+                    img: pizzaData[index]["img"]!,
+                  )));
+      // Navigator.push(
+      //   context,
+      //   MaterialPageRoute(
+      //       builder: (context) => ShowPizza(
+      //             name: pizzaData[index]["Name"]!,
+      //             img: pizzaData[index]["img"]!,
+      //           )),
+      // );
     },
     child: Padding(
       padding: const EdgeInsets.all(8.0),
@@ -67,9 +75,8 @@ Widget PizzaItemWidget(BuildContext context, int index) {
               child: CircleAvatar(
                 radius: 55,
                 child: Hero(
-                  tag: "${pizzaData[index]["img"]}:tag",
-                  child: Image.asset(pizzaData[index]["img"]!)
-                  ),
+                    tag: "${pizzaData[index]["img"]}:tag",
+                    child: Image.asset(pizzaData[index]["img"]!)),
               ),
             ),
           )

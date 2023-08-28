@@ -125,13 +125,21 @@ class ShowPizza extends StatelessWidget {
                       backgroundColor: Colors.amber.shade600,
                       onTap: () {
                         Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => OrderPanel(
+                            context,
+                            PageRouteBuilder(
+                                transitionDuration: Duration(seconds: 2),
+                                pageBuilder: (_, __, ___) => OrderPanel(
                                     name: name,
                                     img: img,
-                                  )),
-                        );
+                                  )));
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //       builder: (context) => OrderPanel(
+                        //             name: name,
+                        //             img: img,
+                        //           )),
+                        // );
                       },
                       style: const TextStyle(
                           fontSize: 18,
